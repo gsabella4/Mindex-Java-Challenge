@@ -28,7 +28,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employee;
     }
 
-    //Returns Employee object, by employeeId
+    //Returns Employee object for employeeId
     //If employeeId is not valid and/or not found, throws a runtime exception
     @Override
     public Employee read(String id) {

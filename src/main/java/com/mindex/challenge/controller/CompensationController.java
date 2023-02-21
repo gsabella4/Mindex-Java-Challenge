@@ -19,6 +19,7 @@ public class CompensationController {
     @Autowired
     private CompensationService compensationService;
 
+    //Creates Compensation and returns new Compensation object
     @PostMapping("")
     @ResponseStatus(HttpStatus.CREATED)
     public Compensation create(@Valid @RequestBody Compensation compensation) {
@@ -28,10 +29,11 @@ public class CompensationController {
         if (newCompensation != null) {
             return newCompensation;
         } else {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Bad Request, insufficient compensation information provided");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Bad Request, insufficient or invalid compensation information provided");
         }
     }
 
+    //Returns Compensation object for employeeId
     @GetMapping("/{id}")
     public Compensation read(@PathVariable String id) {
         LOG.debug("Received compensation read request for employee id: [{}]", id);
@@ -40,7 +42,7 @@ public class CompensationController {
         if (compensation != null) {
             return compensation;
         } else {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid Employee Id: " + id);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid Employee Id: " + id);
         }
     }
 

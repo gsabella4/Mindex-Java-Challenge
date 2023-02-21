@@ -1,7 +1,6 @@
 package com.mindex.challenge.data;
 
 import javax.validation.constraints.Future;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 import java.math.BigDecimal;
@@ -15,10 +14,8 @@ public class Compensation {
     @NotNull(message = "The Employee object cannot be null")
     private Employee employee;
     @Positive
-    @NotBlank(message = "salary field must not be blank")
     private BigDecimal salary;
     @Future(message = "The Effective Date must be a future date")
-    @NotBlank(message = "effectiveDate field must not be blank")
     private LocalDate effectiveDate;
 
     //Constructors for Compensation

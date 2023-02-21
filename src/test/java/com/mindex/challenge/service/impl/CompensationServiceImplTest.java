@@ -1,6 +1,5 @@
 package com.mindex.challenge.service.impl;
 
-import com.mindex.challenge.dao.EmployeeRepository;
 import com.mindex.challenge.data.Compensation;
 import com.mindex.challenge.data.Employee;
 import com.mindex.challenge.service.CompensationService;
@@ -31,7 +30,7 @@ public class CompensationServiceImplTest {
     private CompensationService compensationService;
 
     @Autowired
-    private EmployeeRepository employeeRepository;
+    private EmployeeServiceImpl employeeService;
 
     @LocalServerPort
     private int port;
@@ -40,10 +39,10 @@ public class CompensationServiceImplTest {
     private TestRestTemplate restTemplate;
 
     //Test employee #1 - Ringo Starr
-    private final Employee TEST_EMPLOYEE1 = employeeRepository.findByEmployeeId("03aa1462-ffa9-4978-901b-7c001562cf6f");
+    private final Employee TEST_EMPLOYEE1 = employeeService.read("03aa1462-ffa9-4978-901b-7c001562cf6f");
 
     //Test employee #2 - Paul McCartney
-    private final Employee TEST_EMPLOYEE2 = employeeRepository.findByEmployeeId("b7839309-3348-463b-a7e3-5de1c168beb3");
+    private final Employee TEST_EMPLOYEE2 = employeeService.read("b7839309-3348-463b-a7e3-5de1c168beb3");
 
     @Before
     public void setup() {

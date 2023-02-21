@@ -2,6 +2,7 @@ package com.mindex.challenge.service.impl;
 
 import com.mindex.challenge.dao.CompensationRepository;
 import com.mindex.challenge.data.Compensation;
+import com.mindex.challenge.data.Employee;
 import com.mindex.challenge.service.CompensationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +16,9 @@ public class CompensationServiceImpl implements CompensationService {
 
     @Autowired
     private CompensationRepository compensationRepository;
+
+    @Autowired
+    private EmployeeServiceImpl employeeService;
 
     //Task 2
 
@@ -30,13 +34,14 @@ public class CompensationServiceImpl implements CompensationService {
     //Returns Compensation object for employeeId
     //If employeeId is not valid and/or not found, throws a runtime exception
     @Override
-    public Compensation read(String employeeId) {
-        LOG.debug("Reading compensation for employee Id: [{}]", employeeId);
+    public Compensation read(String id) {
+        LOG.debug("Reading compensation for employee Id: [{}]", id);
+        Employee employee = employeeService.read(id);
 
-        Compensation compensation = compensationRepository.findCompensationByEmployeeId(employeeId);
+        Compensation compensation = compensationRepository.findByEmployee(employee);
 
         if(compensation == null){
-            throw new RuntimeException("Invalid employeeId: " + employeeId);
+            throw new RuntimeException("Invalid employeeId: " + id);
         }
 
         return compensation;

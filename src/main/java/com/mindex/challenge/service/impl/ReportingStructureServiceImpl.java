@@ -24,28 +24,31 @@ public class ReportingStructureServiceImpl implements ReportingStructureService 
     //Returns reporting structure for employee, by employeeId
     //If employeeId is not valid and/or not found, throws a runtime exception
     @Override
-    public ReportingStructure read(String employeeId) {
-        LOG.debug("Creating reporting structure for employee with id [{}]", employeeId);
+    public ReportingStructure read(String id) {
+        LOG.debug("Creating reporting structure for employee with id [{}]", id);
 
-        Employee employee = employeeRepository.findByEmployeeId(employeeId);
+        Employee employee = employeeRepository.findByEmployeeId(id);
         ReportingStructure reportingStructure;
 
         if (employee == null) {
-            throw new RuntimeException("Invalid employeeId: " + employeeId);
+            throw new RuntimeException("Invalid employeeId: " + id);
         }
 
-            List<Employee> directReports = employee.getDirectReports();
-            int numOfDirectReports = directReports.size();
+        int numOfDirectReports = 0;
 
-            if (numOfDirectReports > 0) {
-                for (Employee each : directReports) {
-                    if (each.getDirectReports().size() > 0) {
-                        numOfDirectReports += each.getDirectReports().size();
+            List<Employee> directReports = employee.getDirectReports();
+            if (directReports != null) {
+                numOfDirectReports += directReports.size();
+
+                if (numOfDirectReports > 0) {
+                    for (Employee each : directReports) {
+                        if (each.getDirectReports() != null) {
+                            numOfDirectReports += each.getDirectReports().size();
+                        }
                     }
                 }
             }
-
-            reportingStructure = new ReportingStructure(employee, numOfDirectReports);
+        reportingStructure = new ReportingStructure(employee, numOfDirectReports);
 
         return reportingStructure;
     }

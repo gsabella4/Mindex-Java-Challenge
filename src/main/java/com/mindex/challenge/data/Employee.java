@@ -6,7 +6,6 @@ import java.util.List;
 public class Employee {
 
     //Employee Properties
-    @NotBlank(message = "employeeId field cannot be blank")
     private String employeeId;
     @NotBlank(message = "firstName field cannot be blank")
     private String firstName;

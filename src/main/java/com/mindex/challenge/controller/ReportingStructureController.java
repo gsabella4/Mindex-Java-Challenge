@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 @RestController
-@RequestMapping("/reportingStructure") //Shared base path for all handler methods
 public class ReportingStructureController {
     private static final Logger LOG = LoggerFactory.getLogger(ReportingStructureController.class);
 
@@ -20,7 +19,7 @@ public class ReportingStructureController {
     //Task 1
 
     //Returns reporting structure for employee, by employeeId
-    @GetMapping("/{employeeId}")
+    @GetMapping("/reportingStructure/{employeeId}")
     public ReportingStructure read(@PathVariable String employeeId) {
         LOG.debug("Received Reporting Structure read request for employee id [{}]", employeeId);
 

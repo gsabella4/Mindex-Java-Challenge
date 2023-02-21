@@ -3,5 +3,6 @@ package com.mindex.challenge.service;
 import com.mindex.challenge.data.ReportingStructure;
 
 public interface ReportingStructureService {
-    ReportingStructure read(String id);
+    //Task 1
+    ReportingStructure read(String employeeId);
 }

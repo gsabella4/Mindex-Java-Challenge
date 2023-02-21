@@ -31,13 +31,13 @@ public class EmployeeServiceImpl implements EmployeeService {
     //Returns Employee object for employeeId
     //If employeeId is not valid and/or not found, throws a runtime exception
     @Override
-    public Employee read(String id) {
-        LOG.debug("Reading employee with id [{}]", id);
+    public Employee read(String employeeId) {
+        LOG.debug("Reading employee with id [{}]", employeeId);
 
-        Employee employee = employeeRepository.findByEmployeeId(id);
+        Employee employee = employeeRepository.findByEmployeeId(employeeId);
 
         if (employee == null) {
-            throw new RuntimeException("Invalid employeeId: " + id);
+            throw new RuntimeException("Invalid employeeId: " + employeeId);
         }
 
         return employee;

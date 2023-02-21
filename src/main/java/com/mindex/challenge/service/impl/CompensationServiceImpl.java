@@ -16,6 +16,8 @@ public class CompensationServiceImpl implements CompensationService {
     @Autowired
     private CompensationRepository compensationRepository;
 
+    //Task 2
+
     //Creates Compensation and returns new Compensation object
     @Override
     public Compensation create(Compensation compensation) {
@@ -28,13 +30,13 @@ public class CompensationServiceImpl implements CompensationService {
     //Returns Compensation object for employeeId
     //If employeeId is not valid and/or not found, throws a runtime exception
     @Override
-    public Compensation read(String id) {
-        LOG.debug("Reading compensation for employee Id: [{}]", id);
+    public Compensation read(String employeeId) {
+        LOG.debug("Reading compensation for employee Id: [{}]", employeeId);
 
-        Compensation compensation = compensationRepository.findCompensationByEmployeeId(id);
+        Compensation compensation = compensationRepository.findCompensationByEmployeeId(employeeId);
 
         if(compensation == null){
-            throw new RuntimeException("Invalid employeeId: " + id);
+            throw new RuntimeException("Invalid employeeId: " + employeeId);
         }
 
         return compensation;

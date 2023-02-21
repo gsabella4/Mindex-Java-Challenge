@@ -1,7 +1,13 @@
 package com.mindex.challenge.data;
 
+import javax.validation.constraints.NotNull;
+
 public class ReportingStructure {
 
+    //Task 1
+
+    //ReportingStructure Properties
+    @NotNull(message = "The Employee object cannot be null")
     private Employee employee;
     private int numberOfReports;
 

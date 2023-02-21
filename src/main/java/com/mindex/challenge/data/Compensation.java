@@ -2,23 +2,29 @@ package com.mindex.challenge.data;
 
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
-import java.util.Date;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 public class Compensation {
 
+    //Task 2
+
+    //Compensation Properties
+    @NotNull(message = "The Employee object cannot be null")
     private Employee employee;
     @Positive
     @NotBlank(message = "salary field must not be blank")
-    private double salary;
+    private BigDecimal salary;
     @Future(message = "The Effective Date must be a future date")
     @NotBlank(message = "effectiveDate field must not be blank")
-    private Date effectiveDate;
+    private LocalDate effectiveDate;
 
     //Constructors for Compensation
     public Compensation(){}
 
-    public Compensation(Employee employee, double salary, Date effectiveDate) {
+    public Compensation(Employee employee, BigDecimal salary, LocalDate effectiveDate) {
         this.employee = employee;
         this.salary = salary;
         this.effectiveDate = effectiveDate;
@@ -33,19 +39,19 @@ public class Compensation {
         this.employee = employee;
     }
 
-    public double getSalary() {
+    public BigDecimal getSalary() {
         return salary;
     }
 
-    public void setSalary(double salary) {
+    public void setSalary(BigDecimal salary) {
         this.salary = salary;
     }
 
-    public Date getEffectiveDate() {
+    public LocalDate getEffectiveDate() {
         return effectiveDate;
     }
 
-    public void setEffectiveDate(Date effectiveDate) {
+    public void setEffectiveDate(LocalDate effectiveDate) {
         this.effectiveDate = effectiveDate;
     }
 }

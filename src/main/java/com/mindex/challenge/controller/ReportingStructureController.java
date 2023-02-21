@@ -10,24 +10,26 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 @RestController
-@RequestMapping("/reportingStructure")
+@RequestMapping("/reportingStructure") //Shared base path for all handler methods
 public class ReportingStructureController {
     private static final Logger LOG = LoggerFactory.getLogger(ReportingStructureController.class);
 
     @Autowired
     private ReportingStructureService reportingStructureService;
 
-    //Returns reporting structure for employee, by employeeId
-    @GetMapping("/{id}")
-    public ReportingStructure read(@PathVariable String id) {
-        LOG.debug("Received Reporting Structure read request for employee id [{}]", id);
+    //Task 1
 
-        ReportingStructure reportingStructure = reportingStructureService.read(id);
+    //Returns reporting structure for employee, by employeeId
+    @GetMapping("/{employeeId}")
+    public ReportingStructure read(@PathVariable String employeeId) {
+        LOG.debug("Received Reporting Structure read request for employee id [{}]", employeeId);
+
+        ReportingStructure reportingStructure = reportingStructureService.read(employeeId);
 
         if(reportingStructure != null){
             return reportingStructure;
         } else {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid Employee Id: " + id);
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid Employee Id: " + employeeId);
         }
     }
 }

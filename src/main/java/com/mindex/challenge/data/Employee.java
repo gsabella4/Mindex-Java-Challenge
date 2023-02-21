@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Employee {
 
+    //Employee Properties
     @NotBlank(message = "employeeId field cannot be blank")
     private String employeeId;
     @NotBlank(message = "firstName field cannot be blank")
@@ -17,9 +18,11 @@ public class Employee {
     private String department;
     private List<Employee> directReports;
 
+    //Constructor for Employee
     public Employee() {
     }
 
+    //Getters and Setters
     public String getEmployeeId() {
         return employeeId;
     }

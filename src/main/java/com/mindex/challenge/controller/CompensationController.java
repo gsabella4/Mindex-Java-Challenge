@@ -12,14 +12,17 @@ import org.springframework.web.server.ResponseStatusException;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/compensation")
+@RequestMapping("/compensation") //Shared base path for all handler methods
 public class CompensationController {
     private static final Logger LOG = LoggerFactory.getLogger(CompensationController.class);
 
     @Autowired
     private CompensationService compensationService;
 
+    //Task 2
+
     //Creates Compensation and returns new Compensation object
+    //Responds with a 201 Created Status code
     @PostMapping("")
     @ResponseStatus(HttpStatus.CREATED)
     public Compensation create(@Valid @RequestBody Compensation compensation) {
@@ -34,15 +37,15 @@ public class CompensationController {
     }
 
     //Returns Compensation object for employeeId
-    @GetMapping("/{id}")
-    public Compensation read(@PathVariable String id) {
-        LOG.debug("Received compensation read request for employee id: [{}]", id);
+    @GetMapping("/{employeeId}")
+    public Compensation read(@PathVariable String employeeId) {
+        LOG.debug("Received compensation read request for employee id: [{}]", employeeId);
 
-        Compensation compensation = compensationService.read(id);
+        Compensation compensation = compensationService.read(employeeId);
         if (compensation != null) {
             return compensation;
         } else {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid Employee Id: " + id);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid Employee Id: " + employeeId);
         }
     }
 

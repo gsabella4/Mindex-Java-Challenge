@@ -19,17 +19,19 @@ public class ReportingStructureServiceImpl implements ReportingStructureService 
     @Autowired
     private EmployeeRepository employeeRepository;
 
+    //Task 1
+
     //Returns reporting structure for employee, by employeeId
     //If employeeId is not valid and/or not found, throws a runtime exception
     @Override
-    public ReportingStructure read(String id) {
-        LOG.debug("Creating reporting structure for employee with id [{}]", id);
+    public ReportingStructure read(String employeeId) {
+        LOG.debug("Creating reporting structure for employee with id [{}]", employeeId);
 
-        Employee employee = employeeRepository.findByEmployeeId(id);
+        Employee employee = employeeRepository.findByEmployeeId(employeeId);
         ReportingStructure reportingStructure;
 
         if (employee == null) {
-            throw new RuntimeException("Invalid employeeId: " + id);
+            throw new RuntimeException("Invalid employeeId: " + employeeId);
         }
 
             List<Employee> directReports = employee.getDirectReports();

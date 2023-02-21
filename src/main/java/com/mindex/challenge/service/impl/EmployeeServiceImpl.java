@@ -17,6 +17,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
 
+    //Creates Employee and returns new Employee object
     @Override
     public Employee create(Employee employee) {
         LOG.debug("Creating employee [{}]", employee);
@@ -27,6 +28,8 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employee;
     }
 
+    //Returns Employee object, by employeeId
+    //If employeeId is not valid and/or not found, throws a runtime exception
     @Override
     public Employee read(String id) {
         LOG.debug("Reading employee with id [{}]", id);
@@ -40,6 +43,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employee;
     }
 
+    //Updates Employee, returns updated Employee object
     @Override
     public Employee update(Employee employee) {
         LOG.debug("Updating employee [{}]", employee);

@@ -28,22 +28,21 @@ public class EmployeeController {
         if (employeeRepository.findByEmployeeId(employee.getEmployeeId()) != null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "There is an existing Employee record for that Employee, please update");
         }
-
         return employeeService.create(employee);
     }
 
-    @GetMapping("/employee/{id}")
-    public Employee read(@PathVariable String id) {
-        LOG.debug("Received employee create request for id [{}]", id);
+    @GetMapping("/employee/{employeeId}")
+    public Employee read(@PathVariable String employeeId) {
+        LOG.debug("Received employee create request for id [{}]", employeeId);
 
-        return employeeService.read(id);
+        return employeeService.read(employeeId);
     }
 
-    @PutMapping("/employee/{id}")
-    public Employee update(@PathVariable String id, @RequestBody Employee employee) {
-        LOG.debug("Received employee create request for id [{}] and employee [{}]", id, employee);
+    @PutMapping("/employee/{employeeId}")
+    public Employee update(@PathVariable String employeeId, @RequestBody Employee employee) {
+        LOG.debug("Received employee create request for id [{}] and employee [{}]", employeeId, employee);
 
-        employee.setEmployeeId(id);
+        employee.setEmployeeId(employeeId);
         return employeeService.update(employee);
     }
 }

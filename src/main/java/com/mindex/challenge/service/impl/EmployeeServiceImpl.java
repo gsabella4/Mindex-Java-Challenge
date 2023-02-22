@@ -28,15 +28,14 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee read(String id) {
-        LOG.debug("Creating employee with id [{}]", id);
+    public Employee read(String employeeId) {
+        LOG.debug("Creating employee with id [{}]", employeeId);
 
-        Employee employee = employeeRepository.findByEmployeeId(id);
+        Employee employee = employeeRepository.findByEmployeeId(employeeId);
 
         if (employee == null) {
-            throw new RuntimeException("Invalid employeeId: " + id);
+            throw new RuntimeException("Invalid employeeId: " + employeeId);
         }
-
         return employee;
     }
 

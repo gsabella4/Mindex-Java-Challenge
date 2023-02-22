@@ -34,16 +34,15 @@ public class CompensationServiceImpl implements CompensationService {
     //Returns Compensation object for employeeId
     //If employeeId is not valid and/or not found, throws a runtime exception
     @Override
-    public Compensation read(String id) {
-        LOG.debug("Reading compensation for employee Id: [{}]", id);
-        Employee employee = employeeService.read(id);
+    public Compensation read(String employeeId) {
+        LOG.debug("Reading compensation for employee Id: [{}]", employeeId);
+        Employee employee = employeeService.read(employeeId);
 
         Compensation compensation = compensationRepository.findByEmployee(employee);
 
         if(compensation == null){
-            throw new RuntimeException("Invalid employeeId: " + id);
+            throw new RuntimeException("Invalid employeeId: " + employeeId);
         }
-
         return compensation;
     }
 }

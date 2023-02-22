@@ -22,21 +22,20 @@ public class ReportingStructureServiceImpl implements ReportingStructureService 
     @Autowired
     private EmployeeServiceImpl employeeService;
 
-    //Task 1
+    // Task 1
 
-    //Returns reporting structure for employee, by employeeId
-    //If employeeId is not valid and/or not found, throws a runtime exception
+    // Returns reporting structure for employee, by employee id
+    // If employeeId is not valid and/or not found, throws a runtime exception
     @Override
-    public ReportingStructure read(String id) {
-        LOG.debug("Creating reporting structure for employee with id [{}]", id);
+    public ReportingStructure read(String employeeId) {
+        LOG.debug("Creating reporting structure for employee with id [{}]", employeeId);
 
-        Employee employee = employeeRepository.findByEmployeeId(id);
+        Employee employee = employeeRepository.findByEmployeeId(employeeId);
         ReportingStructure reportingStructure = new ReportingStructure();
         reportingStructure.setEmployee(employee);
 
-
         if (employee == null) {
-            throw new RuntimeException("Invalid employeeId: " + id);
+            throw new RuntimeException("Invalid employeeId: " + employeeId);
         }
 
         int numOfDirectReports = 0;
@@ -44,24 +43,27 @@ public class ReportingStructureServiceImpl implements ReportingStructureService 
         List<Employee> directReports = employee.getDirectReports();
         if (directReports != null) {
             for (Employee reportingEmployee : directReports) {
-                if (reportingEmployee.getDirectReports() != null) {
                     numOfDirectReports += 1 + getNumberOfReports(reportingEmployee.getEmployeeId());
-                } else {
-                    numOfDirectReports++;
-                }
             }
         }
         reportingStructure.setNumberOfReports(numOfDirectReports);
-
         return reportingStructure;
     }
 
-    public int getNumberOfReports(String id){
-        Employee employee = employeeService.read(id);
-        if (employee.getDirectReports() != null) {
-            return employee.getDirectReports().size();
-        } else {
-            return 0;
+    // Returns number of direct reports for a given employee id
+    @Override
+    public int getNumberOfReports(String employeeId){
+        LOG.debug("Retrieving Count of Direct Reports for employee with id [{}]", employeeId);
+
+        Employee employee = employeeService.read(employeeId);
+        int numOfDirectReports = 0;
+
+        List<Employee> directReports = employee.getDirectReports();
+        if (directReports != null) {
+            for (Employee reportingEmployee : directReports) {
+                numOfDirectReports++;
+            }
         }
+        return numOfDirectReports;
     }
 }

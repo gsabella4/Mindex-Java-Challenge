@@ -39,7 +39,7 @@ public class ReportingStructureServiceImplTest {
         getReportingStructureIdUrl = "http://localhost:" + port + "/reportingStructure/{id}";
     }
 
-    //Read Reporting Structure - Test #1 - 2 Direct Reports (1 level)
+    //Read Reporting Structure - Test #1 - 2 Direct Reports (1 level of reports)
     @Test
     public void testOneReadReportingStructure() {
         // testEmployee - Ringo Starr
@@ -69,7 +69,7 @@ public class ReportingStructureServiceImplTest {
         Assert.assertEquals(testReportingStructure.getNumberOfReports(), readReportingStructure.getNumberOfReports());
     }
 
-    //Read Reporting Structure - Test #3- 4 Direct Reports (2 levels)
+    //Read Reporting Structure - Test #3- 4 Direct Reports (2 levels of reports)
     @Test
     public void testThreeReadReportingStructure() {
         // testEmployee - John Lennon
@@ -84,6 +84,7 @@ public class ReportingStructureServiceImplTest {
         Assert.assertEquals(testReportingStructure.getNumberOfReports(), readReportingStructure.getNumberOfReports());
     }
 
+    // Helper method to ensure Employee Object Equivalence
     private static void assertEmployeeEquivalence(Employee expected, Employee actual) {
         assertEquals(expected.getFirstName(), actual.getFirstName());
         assertEquals(expected.getLastName(), actual.getLastName());

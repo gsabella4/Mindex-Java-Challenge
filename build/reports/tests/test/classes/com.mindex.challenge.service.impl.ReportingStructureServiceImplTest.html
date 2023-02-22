@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.028s</div>
+<div class="counter">0.041s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,17 +79,17 @@
 </thead>
 <tr>
 <td class="success">testOneReadReportingStructure</td>
-<td class="success">0.008s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">testThreeReadReportingStructure</td>
 <td class="success">0.014s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
+<td class="success">testThreeReadReportingStructure</td>
+<td class="success">0.020s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
 <td class="success">testTwoReadReportingStructure</td>
-<td class="success">0.006s</td>
+<td class="success">0.007s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -97,26 +97,26 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>2023-02-21 22:32:33.569  INFO 6460 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.mindex.challenge.service.impl.ReportingStructureServiceImplTest], using SpringBootContextLoader
-2023-02-21 22:32:33.570  INFO 6460 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.mindex.challenge.service.impl.ReportingStructureServiceImplTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-2023-02-21 22:32:33.570  INFO 6460 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.mindex.challenge.service.impl.ReportingStructureServiceImplTest]: ReportingStructureServiceImplTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2023-02-21 22:32:33.570  INFO 6460 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.mindex.challenge.ChallengeApplication for test class com.mindex.challenge.service.impl.ReportingStructureServiceImplTest
-2023-02-21 22:32:33.571  INFO 6460 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-2023-02-21 22:32:33.571  INFO 6460 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@75bf1ac2, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@11fc7c1c, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@466a65dc, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@7123bd2b, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7cc7c0c7, org.springframework.test.context.transaction.TransactionalTestExecutionListener@ea94fdf, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@1b788f53, org.springframework.test.context.event.EventPublishingTestExecutionListener@775eb3f2, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@35dd8426, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@714ee2f5, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@2e13f998, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@2c501e8b, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@75754393]
-2023-02-21 22:32:33.577 DEBUG 6460 --- [o-auto-1-exec-8] c.m.c.c.ReportingStructureController     : Received Reporting Structure read request for employee id [16a596ae-edd3-4847-99fe-c4518e82c86f]
-2023-02-21 22:32:33.577 DEBUG 6460 --- [o-auto-1-exec-8] c.m.c.s.i.ReportingStructureServiceImpl  : Creating reporting structure for employee with id [16a596ae-edd3-4847-99fe-c4518e82c86f]
-2023-02-21 22:32:33.578 DEBUG 6460 --- [o-auto-1-exec-8] c.m.c.s.i.ReportingStructureServiceImpl  : Retrieving Count of Direct Reports for employee with id [b7839309-3348-463b-a7e3-5de1c168beb3]
-2023-02-21 22:32:33.578 DEBUG 6460 --- [o-auto-1-exec-8] c.m.c.service.impl.EmployeeServiceImpl   : Creating employee with id [b7839309-3348-463b-a7e3-5de1c168beb3]
-2023-02-21 22:32:33.579 DEBUG 6460 --- [o-auto-1-exec-8] c.m.c.s.i.ReportingStructureServiceImpl  : Retrieving Count of Direct Reports for employee with id [03aa1462-ffa9-4978-901b-7c001562cf6f]
-2023-02-21 22:32:33.579 DEBUG 6460 --- [o-auto-1-exec-8] c.m.c.service.impl.EmployeeServiceImpl   : Creating employee with id [03aa1462-ffa9-4978-901b-7c001562cf6f]
-2023-02-21 22:32:33.590 DEBUG 6460 --- [o-auto-1-exec-9] c.m.c.c.ReportingStructureController     : Received Reporting Structure read request for employee id [03aa1462-ffa9-4978-901b-7c001562cf6f]
-2023-02-21 22:32:33.590 DEBUG 6460 --- [o-auto-1-exec-9] c.m.c.s.i.ReportingStructureServiceImpl  : Creating reporting structure for employee with id [03aa1462-ffa9-4978-901b-7c001562cf6f]
-2023-02-21 22:32:33.591 DEBUG 6460 --- [o-auto-1-exec-9] c.m.c.s.i.ReportingStructureServiceImpl  : Retrieving Count of Direct Reports for employee with id [62c1084e-6e34-4630-93fd-9153afb65309]
-2023-02-21 22:32:33.591 DEBUG 6460 --- [o-auto-1-exec-9] c.m.c.service.impl.EmployeeServiceImpl   : Creating employee with id [62c1084e-6e34-4630-93fd-9153afb65309]
-2023-02-21 22:32:33.592 DEBUG 6460 --- [o-auto-1-exec-9] c.m.c.s.i.ReportingStructureServiceImpl  : Retrieving Count of Direct Reports for employee with id [c0c2293d-16bd-4603-8e08-638a9d18b22c]
-2023-02-21 22:32:33.592 DEBUG 6460 --- [o-auto-1-exec-9] c.m.c.service.impl.EmployeeServiceImpl   : Creating employee with id [c0c2293d-16bd-4603-8e08-638a9d18b22c]
-2023-02-21 22:32:33.598 DEBUG 6460 --- [-auto-1-exec-10] c.m.c.c.ReportingStructureController     : Received Reporting Structure read request for employee id [b7839309-3348-463b-a7e3-5de1c168beb3]
-2023-02-21 22:32:33.598 DEBUG 6460 --- [-auto-1-exec-10] c.m.c.s.i.ReportingStructureServiceImpl  : Creating reporting structure for employee with id [b7839309-3348-463b-a7e3-5de1c168beb3]
+<pre>2023-02-22 07:57:20.745  INFO 14684 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.mindex.challenge.service.impl.ReportingStructureServiceImplTest], using SpringBootContextLoader
+2023-02-22 07:57:20.746  INFO 14684 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.mindex.challenge.service.impl.ReportingStructureServiceImplTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2023-02-22 07:57:20.746  INFO 14684 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.mindex.challenge.service.impl.ReportingStructureServiceImplTest]: ReportingStructureServiceImplTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-02-22 07:57:20.747  INFO 14684 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.mindex.challenge.ChallengeApplication for test class com.mindex.challenge.service.impl.ReportingStructureServiceImplTest
+2023-02-22 07:57:20.748  INFO 14684 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2023-02-22 07:57:20.748  INFO 14684 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@1b788f53, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@775eb3f2, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@35dd8426, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@714ee2f5, org.springframework.test.context.support.DirtiesContextTestExecutionListener@2e13f998, org.springframework.test.context.transaction.TransactionalTestExecutionListener@2c501e8b, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@75754393, org.springframework.test.context.event.EventPublishingTestExecutionListener@732a5e82, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@4244b646, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@6ecc4cc3, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@317ae352, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@108575b1, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@77940761]
+2023-02-22 07:57:20.758 DEBUG 14684 --- [o-auto-1-exec-9] c.m.c.c.ReportingStructureController     : Received Reporting Structure read request for employee id [16a596ae-edd3-4847-99fe-c4518e82c86f]
+2023-02-22 07:57:20.758 DEBUG 14684 --- [o-auto-1-exec-9] c.m.c.s.i.ReportingStructureServiceImpl  : Creating reporting structure for employee with id [16a596ae-edd3-4847-99fe-c4518e82c86f]
+2023-02-22 07:57:20.760 DEBUG 14684 --- [o-auto-1-exec-9] c.m.c.s.i.ReportingStructureServiceImpl  : Retrieving Count of Direct Reports for employee with id [b7839309-3348-463b-a7e3-5de1c168beb3]
+2023-02-22 07:57:20.760 DEBUG 14684 --- [o-auto-1-exec-9] c.m.c.service.impl.EmployeeServiceImpl   : Creating employee with id [b7839309-3348-463b-a7e3-5de1c168beb3]
+2023-02-22 07:57:20.762 DEBUG 14684 --- [o-auto-1-exec-9] c.m.c.s.i.ReportingStructureServiceImpl  : Retrieving Count of Direct Reports for employee with id [03aa1462-ffa9-4978-901b-7c001562cf6f]
+2023-02-22 07:57:20.762 DEBUG 14684 --- [o-auto-1-exec-9] c.m.c.service.impl.EmployeeServiceImpl   : Creating employee with id [03aa1462-ffa9-4978-901b-7c001562cf6f]
+2023-02-22 07:57:20.777 DEBUG 14684 --- [-auto-1-exec-10] c.m.c.c.ReportingStructureController     : Received Reporting Structure read request for employee id [03aa1462-ffa9-4978-901b-7c001562cf6f]
+2023-02-22 07:57:20.778 DEBUG 14684 --- [-auto-1-exec-10] c.m.c.s.i.ReportingStructureServiceImpl  : Creating reporting structure for employee with id [03aa1462-ffa9-4978-901b-7c001562cf6f]
+2023-02-22 07:57:20.780 DEBUG 14684 --- [-auto-1-exec-10] c.m.c.s.i.ReportingStructureServiceImpl  : Retrieving Count of Direct Reports for employee with id [62c1084e-6e34-4630-93fd-9153afb65309]
+2023-02-22 07:57:20.780 DEBUG 14684 --- [-auto-1-exec-10] c.m.c.service.impl.EmployeeServiceImpl   : Creating employee with id [62c1084e-6e34-4630-93fd-9153afb65309]
+2023-02-22 07:57:20.782 DEBUG 14684 --- [-auto-1-exec-10] c.m.c.s.i.ReportingStructureServiceImpl  : Retrieving Count of Direct Reports for employee with id [c0c2293d-16bd-4603-8e08-638a9d18b22c]
+2023-02-22 07:57:20.782 DEBUG 14684 --- [-auto-1-exec-10] c.m.c.service.impl.EmployeeServiceImpl   : Creating employee with id [c0c2293d-16bd-4603-8e08-638a9d18b22c]
+2023-02-22 07:57:20.790 DEBUG 14684 --- [o-auto-1-exec-8] c.m.c.c.ReportingStructureController     : Received Reporting Structure read request for employee id [b7839309-3348-463b-a7e3-5de1c168beb3]
+2023-02-22 07:57:20.790 DEBUG 14684 --- [o-auto-1-exec-8] c.m.c.s.i.ReportingStructureServiceImpl  : Creating reporting structure for employee with id [b7839309-3348-463b-a7e3-5de1c168beb3]
 </pre>
 </span>
 </div>
@@ -128,7 +128,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 6.3</a> at Feb 21, 2023, 10:32:33 PM</p>
+<a href="http://www.gradle.org">Gradle 6.3</a> at Feb 22, 2023, 7:57:21 AM</p>
 </div>
 </div>
 </body>

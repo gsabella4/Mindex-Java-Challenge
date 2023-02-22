@@ -32,9 +32,12 @@ public class CompensationController {
     public Compensation create(@Valid @RequestBody Compensation compensation) {
         LOG.debug("Received compensation create request for [{}]", compensation);
 
-        // Could implement exception handling throwing a HttpStatus.BAD_REQUEST if a compensation record already exists for the Employee
-        // However, it is likely necessary to have record of various compensation changes throughout employment
-
+        // Exception handling throwing a HttpStatus.BAD_REQUEST if a compensation record already exists for the Employee
+        // Could Modify if record keeping of multiple compensation records for an employee is necessary
+        // w/o lines 38-40: Receiving errors in Postman testing when GET request for an employee's compensation when they have multiple Comp records "returned non-unique result"
+        if (compensationRepository.findByEmployee(compensation.getEmployee()) != null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "There is an existing Compensation record for that Employee, please update");
+        }
         return compensationService.create(compensation);
     }
 

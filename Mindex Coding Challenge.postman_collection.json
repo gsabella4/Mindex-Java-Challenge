@@ -1,0 +1,410 @@
+{
+	"info": {
+		"_postman_id": "0cca7769-0817-4bcf-bf26-75139d42e68d",
+		"name": "Mindex Coding Challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24006330"
+	},
+	"item": [
+		{
+			"name": "Get Employee by id Pete Best",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/employee/62c1084e-6e34-4630-93fd-9153afb65309",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employee",
+						"62c1084e-6e34-4630-93fd-9153afb65309"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Employee by Id George Harrison",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/employee/c0c2293d-16bd-4603-8e08-638a9d18b22c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employee",
+						"c0c2293d-16bd-4603-8e08-638a9d18b22c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Employee by Id Paul McCartney",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/employee/b7839309-3348-463b-a7e3-5de1c168beb3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employee",
+						"b7839309-3348-463b-a7e3-5de1c168beb3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Employee by Id Ringo Starr",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/employee/03aa1462-ffa9-4978-901b-7c001562cf6f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employee",
+						"03aa1462-ffa9-4978-901b-7c001562cf6f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Employee by Id John Lennon",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/employee/16a596ae-edd3-4847-99fe-c4518e82c86f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employee",
+						"16a596ae-edd3-4847-99fe-c4518e82c86f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Reporting Structure John Lennon",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/reportingStructure/16a596ae-edd3-4847-99fe-c4518e82c86f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reportingStructure",
+						"16a596ae-edd3-4847-99fe-c4518e82c86f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Reporting Structure Pete Best",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/reportingStructure/62c1084e-6e34-4630-93fd-9153afb65309",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reportingStructure",
+						"62c1084e-6e34-4630-93fd-9153afb65309"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Reporting Structure Ringo Starr",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/reportingStructure/03aa1462-ffa9-4978-901b-7c001562cf6f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reportingStructure",
+						"03aa1462-ffa9-4978-901b-7c001562cf6f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Reporting Structure Paul McCartney",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/reportingStructure/b7839309-3348-463b-a7e3-5de1c168beb3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reportingStructure",
+						"b7839309-3348-463b-a7e3-5de1c168beb3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Reporting Structure George Harrison",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/reportingStructure/c0c2293d-16bd-4603-8e08-638a9d18b22c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reportingStructure",
+						"c0c2293d-16bd-4603-8e08-638a9d18b22c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Compensation Pete Best",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"employee\": \r\n        {\r\n        \"employeeId\": \"62c1084e-6e34-4630-93fd-9153afb65309\",\r\n        \"firstName\": \"Pete\",\r\n        \"lastName\": \"Best\",\r\n        \"position\": \"Developer II\",\r\n        \"department\": \"Engineering\",\r\n        \"directReports\": null\r\n}\r\n        ,\r\n    \"salary\": 80000,\r\n    \"effectiveDate\": \"2023-03-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/compensation",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"compensation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Compensation Pete Best",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/compensation/62c1084e-6e34-4630-93fd-9153afb65309",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"compensation",
+						"62c1084e-6e34-4630-93fd-9153afb65309"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Compensation George Harrison - Future Date Error",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"employee\": {\r\n        \"employeeId\": \"c0c2293d-16bd-4603-8e08-638a9d18b22c\",\r\n        \"firstName\": \"George\",\r\n        \"lastName\": \"Harrison\",\r\n        \"position\": \"Developer III\",\r\n        \"department\": \"Engineering\",\r\n        \"directReports\": null\r\n    },\r\n    \"salary\": 110000,\r\n    \"effectiveDate\": \"2023-02-22\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/compensation",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"compensation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Compensation George Harrison - Success",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"employee\": {\r\n        \"employeeId\": \"c0c2293d-16bd-4603-8e08-638a9d18b22c\",\r\n        \"firstName\": \"George\",\r\n        \"lastName\": \"Harrison\",\r\n        \"position\": \"Developer III\",\r\n        \"department\": \"Engineering\",\r\n        \"directReports\": null\r\n    },\r\n    \"salary\": 110000,\r\n    \"effectiveDate\": \"2023-05-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/compensation",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"compensation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Compensation George Harrison",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/compensation/c0c2293d-16bd-4603-8e08-638a9d18b22c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"compensation",
+						"c0c2293d-16bd-4603-8e08-638a9d18b22c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Compensation #1 John Lennon",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"employee\": \r\n        {\r\n        \"employeeId\": \"16a596ae-edd3-4847-99fe-c4518e82c86f\",\r\n        \"firstName\": \"John\",\r\n        \"lastName\": \"Lennon\",\r\n        \"position\": \"Development Manager\",\r\n        \"department\": \"Engineering\",\r\n        \"directReports\": [\r\n            {\r\n                \"employeeId\": \"b7839309-3348-463b-a7e3-5de1c168beb3\",\r\n                \"firstName\": null,\r\n                \"lastName\": null,\r\n                \"position\": null,\r\n                \"department\": null,\r\n                \"directReports\": null\r\n            },\r\n            {\r\n                \"employeeId\": \"03aa1462-ffa9-4978-901b-7c001562cf6f\",\r\n                \"firstName\": null,\r\n                \"lastName\": null,\r\n                \"position\": null,\r\n                \"department\": null,\r\n                \"directReports\": null\r\n                }\r\n            ]\r\n        },\r\n    \"salary\": 150000,\r\n    \"effectiveDate\": \"2023-02-25\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/compensation",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"compensation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Compensation John Lennon Success",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/compensation/16a596ae-edd3-4847-99fe-c4518e82c86f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"compensation",
+						"16a596ae-edd3-4847-99fe-c4518e82c86f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Compensation #2 John Lennon - throws 400 Bad Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"employee\": \r\n        {\r\n        \"employeeId\": \"16a596ae-edd3-4847-99fe-c4518e82c86f\",\r\n        \"firstName\": \"John\",\r\n        \"lastName\": \"Lennon\",\r\n        \"position\": \"Development Manager\",\r\n        \"department\": \"Engineering\",\r\n        \"directReports\": [\r\n            {\r\n                \"employeeId\": \"b7839309-3348-463b-a7e3-5de1c168beb3\",\r\n                \"firstName\": null,\r\n                \"lastName\": null,\r\n                \"position\": null,\r\n                \"department\": null,\r\n                \"directReports\": null\r\n            },\r\n            {\r\n                \"employeeId\": \"03aa1462-ffa9-4978-901b-7c001562cf6f\",\r\n                \"firstName\": null,\r\n                \"lastName\": null,\r\n                \"position\": null,\r\n                \"department\": null,\r\n                \"directReports\": null\r\n                }\r\n            ]\r\n        },\r\n    \"salary\": 180000,\r\n    \"effectiveDate\": \"2023-04-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/compensation",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"compensation"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

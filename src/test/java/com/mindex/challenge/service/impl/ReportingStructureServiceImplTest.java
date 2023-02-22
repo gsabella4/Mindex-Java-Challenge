@@ -20,7 +20,7 @@ import static org.junit.Assert.assertEquals;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class ReportingStructureServiceImplTest {
 
-    private String getReportingStructureByEmployeeIdUrl;
+    private String getReportingStructureIdUrl;
 
     @Autowired
     private ReportingStructureService reportingStructureService;
@@ -34,53 +34,53 @@ public class ReportingStructureServiceImplTest {
     @Autowired
     private TestRestTemplate restTemplate;
 
-    //Test employee #1 - Ringo Starr - 2 Direct Reports
-    private final Employee TEST_EMPLOYEE1 = employeeRepository.findByEmployeeId("03aa1462-ffa9-4978-901b-7c001562cf6f");
-
-    //Test employee #2 - Paul McCartney - No Direct Reports
-    private final Employee TEST_EMPLOYEE2 = employeeRepository.findByEmployeeId("b7839309-3348-463b-a7e3-5de1c168beb3");
-
-    //Test employee #3 - John Lennon - 4 Direct Reports
-    private final Employee TEST_EMPLOYEE3 = employeeRepository.findByEmployeeId("16a596ae-edd3-4847-99fe-c4518e82c86f");
-
     @Before
     public void setup() {
-        getReportingStructureByEmployeeIdUrl = "http://localhost:" + port + "/reportingStructure/{employeeId}";
+        getReportingStructureIdUrl = "http://localhost:" + port + "/reportingStructure/{id}";
     }
 
-    //Read Reporting Structure Check - 2 Direct Reports (1 level)
+    //Read Reporting Structure - Test #1 - 2 Direct Reports (1 level)
     @Test
-    public void testReadReportingStructureTwoReports() {
-        ReportingStructure testReportingStructure = new ReportingStructure(TEST_EMPLOYEE1, 2);
+    public void testOneReadReportingStructure() {
+        // testEmployee - Ringo Starr
+        Employee testEmployee = employeeRepository.findByEmployeeId("03aa1462-ffa9-4978-901b-7c001562cf6f");
+        ReportingStructure testReportingStructure = new ReportingStructure(testEmployee, 2);
 
-        ReportingStructure readReportingStructure = restTemplate.getForEntity(getReportingStructureByEmployeeIdUrl, ReportingStructure.class, TEST_EMPLOYEE1.getEmployeeId()).getBody();
+        // Read checks
+        ReportingStructure readReportingStructure = restTemplate.getForEntity(getReportingStructureIdUrl, ReportingStructure.class, testEmployee.getEmployeeId()).getBody();
 
         Assert.assertNotNull(readReportingStructure);
-        assertEmployeeEquivalence(TEST_EMPLOYEE1, readReportingStructure.getEmployee());
+        assertEmployeeEquivalence(testEmployee, readReportingStructure.getEmployee());
         Assert.assertEquals(testReportingStructure.getNumberOfReports(), readReportingStructure.getNumberOfReports());
     }
 
-    //Read Reporting Structure Check - No Direct Reports
+    //Read Reporting Structure - Test #2 - No Direct Reports
     @Test
-    public void testReadReportingStructureNoReports() {
-        ReportingStructure testReportingStructure = new ReportingStructure(TEST_EMPLOYEE2, 0);
+    public void testTwoReadReportingStructure() {
+        // testEmployee - Paul McCartney
+        Employee testEmployee = employeeRepository.findByEmployeeId("b7839309-3348-463b-a7e3-5de1c168beb3");
+        ReportingStructure testReportingStructure = new ReportingStructure(testEmployee, 0);
 
-        ReportingStructure readReportingStructure = restTemplate.getForEntity(getReportingStructureByEmployeeIdUrl, ReportingStructure.class, TEST_EMPLOYEE2.getEmployeeId()).getBody();
+        // Read checks
+        ReportingStructure readReportingStructure = restTemplate.getForEntity(getReportingStructureIdUrl, ReportingStructure.class, testEmployee.getEmployeeId()).getBody();
 
         Assert.assertNotNull(readReportingStructure);
-        assertEmployeeEquivalence(TEST_EMPLOYEE2, readReportingStructure.getEmployee());
+        assertEmployeeEquivalence(testEmployee, readReportingStructure.getEmployee());
         Assert.assertEquals(testReportingStructure.getNumberOfReports(), readReportingStructure.getNumberOfReports());
     }
 
-    //Read Reporting Structure Check - 4 Direct Reports (2 levels)
+    //Read Reporting Structure - Test #3- 4 Direct Reports (2 levels)
     @Test
-    public void testReadReportingStructureFourReports() {
-        ReportingStructure testReportingStructure = new ReportingStructure(TEST_EMPLOYEE3, 4);
+    public void testThreeReadReportingStructure() {
+        // testEmployee - John Lennon
+        Employee testEmployee = employeeRepository.findByEmployeeId("16a596ae-edd3-4847-99fe-c4518e82c86f");
+        ReportingStructure testReportingStructure = new ReportingStructure(testEmployee, 4);
 
-        ReportingStructure readReportingStructure = restTemplate.getForEntity(getReportingStructureByEmployeeIdUrl, ReportingStructure.class, TEST_EMPLOYEE3.getEmployeeId()).getBody();
+        // Read checks
+        ReportingStructure readReportingStructure = restTemplate.getForEntity(getReportingStructureIdUrl, ReportingStructure.class, testEmployee.getEmployeeId()).getBody();
 
         Assert.assertNotNull(readReportingStructure);
-        assertEmployeeEquivalence(TEST_EMPLOYEE3, readReportingStructure.getEmployee());
+        assertEmployeeEquivalence(testEmployee, readReportingStructure.getEmployee());
         Assert.assertEquals(testReportingStructure.getNumberOfReports(), readReportingStructure.getNumberOfReports());
     }
 

@@ -1,5 +1,6 @@
 package com.mindex.challenge.controller;
 
+import com.mindex.challenge.dao.CompensationRepository;
 import com.mindex.challenge.data.Compensation;
 import com.mindex.challenge.service.CompensationService;
 import org.slf4j.Logger;
@@ -19,6 +20,9 @@ public class CompensationController {
     @Autowired
     private CompensationService compensationService;
 
+    @Autowired
+    private CompensationRepository compensationRepository;
+
     //Task 2
 
     //Creates Compensation and returns new Compensation object
@@ -28,12 +32,10 @@ public class CompensationController {
     public Compensation create(@Valid @RequestBody Compensation compensation) {
         LOG.debug("Received compensation create request for [{}]", compensation);
 
-        Compensation newCompensation = compensationService.create(compensation);
-        if (newCompensation != null) {
-            return newCompensation;
-        } else {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Bad Request, insufficient or invalid compensation information provided");
-        }
+        // Could implement exception handling throwing a HttpStatus.BAD_REQUEST if a compensation record already exists for the Employee
+        // However, it is likely necessary to have record of various compensation changes throughout employment
+
+        return compensationService.create(compensation);
     }
 
     //Returns Compensation object for employeeId
@@ -42,11 +44,12 @@ public class CompensationController {
         LOG.debug("Received compensation read request for employee id: [{}]", employeeId);
 
         Compensation compensation = compensationService.read(employeeId);
+
+        // Exception handling if employeeId is invalid/not found --- implementing as backup as runtimeException in compensationService should catch first
         if (compensation != null) {
             return compensation;
         } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid Employee Id: " + employeeId);
         }
     }
-
 }

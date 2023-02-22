@@ -1,6 +1,9 @@
 package com.mindex.challenge.data;
 
+import com.mindex.challenge.dao.EmployeeRepository;
+
 import javax.validation.constraints.NotBlank;
+import java.util.Arrays;
 import java.util.List;
 
 public class Employee {
@@ -68,5 +71,18 @@ public class Employee {
 
     public void setDirectReports(List<Employee> directReports) {
         this.directReports = directReports;
+    }
+
+    // Employee toString
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "employeeId='" + employeeId + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", position='" + position + '\'' +
+                ", department='" + department + '\'' +
+                ", directReports=" + directReports +
+                '}';
     }
 }

@@ -22,9 +22,8 @@ import static org.junit.Assert.assertEquals;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class CompensationServiceImplTest {
 
-    private String createCompensationUrl;
-    private String getCompensationByEmployeeIdUrl;
-
+    private String compensationUrl;
+    private String compensationIdUrl;
 
     @Autowired
     private CompensationService compensationService;
@@ -38,46 +37,50 @@ public class CompensationServiceImplTest {
     @Autowired
     private TestRestTemplate restTemplate;
 
-    //Test employee #1 - Ringo Starr
-    private final Employee TEST_EMPLOYEE1 = employeeService.read("03aa1462-ffa9-4978-901b-7c001562cf6f");
-
-    //Test employee #2 - Paul McCartney
-    private final Employee TEST_EMPLOYEE2 = employeeService.read("b7839309-3348-463b-a7e3-5de1c168beb3");
-
     @Before
     public void setup() {
-        createCompensationUrl = "http://localhost:" + port + "/compensation";
-        getCompensationByEmployeeIdUrl = "http://localhost:" + port + "/compensation/{employeeId}";
+        compensationUrl = "http://localhost:" + port + "/compensation";
+        compensationIdUrl = "http://localhost:" + port + "/compensation/{id}";
     }
 
-    //Create Compensation Check
+    // Compensation Create and Read - Test #1
     @Test
-    public void testCreateCompensation() {
-        Compensation testCompensation = new Compensation(TEST_EMPLOYEE1, BigDecimal.valueOf(130000), LocalDate.of(2023, 3, 1));
+    public void testOneCreateReadCompensation() {
+        // testEmployee - John Lennon
+        Employee testEmployee = employeeService.read("b7839309-3348-463b-a7e3-5de1c168beb3");
+        Compensation testCompensation = new Compensation(testEmployee, BigDecimal.valueOf(80000), LocalDate.of(2023, 3, 6));
 
-        Compensation createdCompensation = restTemplate.postForEntity(createCompensationUrl, testCompensation, Compensation.class).getBody();
+        // Create checks
+        Compensation createdCompensation = restTemplate.postForEntity(compensationUrl, testCompensation, Compensation.class).getBody();
 
         Assert.assertNotNull(createdCompensation);
-        //Comparing BigDecimal Salary, will return 0 if matching
-        Assert.assertEquals(createdCompensation.getSalary().compareTo(testCompensation.getSalary()), 0);
-        //Comparing LocalDate effectiveDate, will return 0 if matching
-        Assert.assertEquals(createdCompensation.getEffectiveDate().compareTo(testCompensation.getEffectiveDate()), 0);
-        assertEmployeeEquivalence(createdCompensation.getEmployee(), testCompensation.getEmployee());
-    }
+        assertCompensationEquivalence(testCompensation, createdCompensation);
 
-    //Read Compensation Check
-    @Test
-    public void testReadCompensation() {
-        Compensation testCompensation = new Compensation(TEST_EMPLOYEE2, BigDecimal.valueOf(80000), LocalDate.of(2023, 3, 1));
-
-        Compensation readCompensation = restTemplate.getForEntity(getCompensationByEmployeeIdUrl, Compensation.class, TEST_EMPLOYEE2.getEmployeeId()).getBody();
+        // Read checks
+        Compensation readCompensation = restTemplate.getForEntity(compensationIdUrl, Compensation.class, testEmployee.getEmployeeId()).getBody();
 
         Assert.assertNotNull(readCompensation);
-        //Comparing BigDecimal Salary, will return 0 if matching
-        Assert.assertEquals(readCompensation.getSalary().compareTo(testCompensation.getSalary()), 0);
-        //Comparing LocalDate effectiveDate, will return 0 if matching
-        Assert.assertEquals(readCompensation.getEffectiveDate().compareTo(testCompensation.getEffectiveDate()), 0);
-        assertEmployeeEquivalence(readCompensation.getEmployee(), testCompensation.getEmployee());
+        assertCompensationEquivalence(testCompensation, readCompensation);
+    }
+
+    // Compensation Create and Read - Test #2
+    @Test
+    public void testTwoCreateReadCompensation() {
+        // testEmployee - Ringo Starr
+        Employee testEmployee = employeeService.read("03aa1462-ffa9-4978-901b-7c001562cf6f");
+        Compensation testCompensation = new Compensation(testEmployee, BigDecimal.valueOf(135000), LocalDate.of(2023, 4, 3));
+
+        // Create checks
+        Compensation createdCompensation = restTemplate.postForEntity(compensationUrl, testCompensation, Compensation.class).getBody();
+
+        Assert.assertNotNull(createdCompensation);
+        assertCompensationEquivalence(testCompensation, createdCompensation);
+
+        // Read checks
+        Compensation readCompensation = restTemplate.getForEntity(compensationIdUrl, Compensation.class, testEmployee.getEmployeeId()).getBody();
+
+        Assert.assertNotNull(readCompensation);
+        assertCompensationEquivalence(testCompensation, readCompensation);
     }
 
     private static void assertEmployeeEquivalence(Employee expected, Employee actual) {
@@ -85,5 +88,12 @@ public class CompensationServiceImplTest {
         assertEquals(expected.getLastName(), actual.getLastName());
         assertEquals(expected.getDepartment(), actual.getDepartment());
         assertEquals(expected.getPosition(), actual.getPosition());
+    }
+
+    // Helper method to ensure Compensation Object Equivalence
+    private static void assertCompensationEquivalence(Compensation expected, Compensation actual) {
+        Assert.assertEquals(expected.getSalary().compareTo(actual.getSalary()), 0);
+        Assert.assertEquals(expected.getEffectiveDate().compareTo(actual.getEffectiveDate()), 0);
+        assertEmployeeEquivalence(expected.getEmployee(), actual.getEmployee());
     }
 }

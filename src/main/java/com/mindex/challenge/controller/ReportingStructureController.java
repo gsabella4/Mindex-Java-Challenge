@@ -27,6 +27,7 @@ public class ReportingStructureController {
 
         ReportingStructure reportingStructure = reportingStructureService.read(id);
 
+        // Exception handling if employeeId is invalid/not found --- implementing as backup as runtimeException in reportingStructureService should catch first
         if(reportingStructure != null){
             return reportingStructure;
         } else {

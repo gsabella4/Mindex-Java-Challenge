@@ -51,4 +51,14 @@ public class Compensation {
     public void setEffectiveDate(LocalDate effectiveDate) {
         this.effectiveDate = effectiveDate;
     }
+
+    // Compensation toString
+    @Override
+    public String toString() {
+        return "Compensation{" +
+                "employee=" + employee +
+                ", salary=" + salary +
+                ", effectiveDate=" + effectiveDate +
+                '}';
+    }
 }

@@ -35,4 +35,13 @@ public class ReportingStructure {
     public void setNumberOfReports(int numberOfReports) {
         this.numberOfReports = numberOfReports;
     }
+
+    // ReportingStructure toString
+    @Override
+    public String toString() {
+        return "ReportingStructure{" +
+                "employee=" + employee +
+                ", numberOfReports=" + numberOfReports +
+                '}';
+    }
 }

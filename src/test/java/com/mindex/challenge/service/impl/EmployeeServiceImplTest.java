@@ -67,10 +67,12 @@ public class EmployeeServiceImplTest {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
+        HttpEntity<Employee> entity = makeEntity(readEmployee);
+
         Employee updatedEmployee =
                 restTemplate.exchange(employeeIdUrl,
                         HttpMethod.PUT,
-                        new HttpEntity<Employee>(readEmployee, headers),
+                        entity,
                         Employee.class,
                         readEmployee.getEmployeeId()).getBody();
 
@@ -83,5 +85,13 @@ public class EmployeeServiceImplTest {
         assertEquals(expected.getLastName(), actual.getLastName());
         assertEquals(expected.getDepartment(), actual.getDepartment());
         assertEquals(expected.getPosition(), actual.getPosition());
+    }
+
+    // Helper method to create entity
+    private HttpEntity<Employee> makeEntity(Employee employee){
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<Employee> entity = new HttpEntity<Employee>(employee, headers);
+        return entity;
     }
 }

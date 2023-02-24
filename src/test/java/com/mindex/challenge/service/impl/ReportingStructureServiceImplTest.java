@@ -50,8 +50,7 @@ public class ReportingStructureServiceImplTest {
         ReportingStructure readReportingStructure = restTemplate.getForEntity(getReportingStructureIdUrl, ReportingStructure.class, testEmployee.getEmployeeId()).getBody();
 
         Assert.assertNotNull(readReportingStructure);
-        assertEmployeeEquivalence(testEmployee, readReportingStructure.getEmployee());
-        Assert.assertEquals(testReportingStructure.getNumberOfReports(), readReportingStructure.getNumberOfReports());
+        assertReportingStructureEquivalence(testReportingStructure, readReportingStructure);
     }
 
     //Read Reporting Structure - Test #2 - No Direct Reports
@@ -65,8 +64,7 @@ public class ReportingStructureServiceImplTest {
         ReportingStructure readReportingStructure = restTemplate.getForEntity(getReportingStructureIdUrl, ReportingStructure.class, testEmployee.getEmployeeId()).getBody();
 
         Assert.assertNotNull(readReportingStructure);
-        assertEmployeeEquivalence(testEmployee, readReportingStructure.getEmployee());
-        Assert.assertEquals(testReportingStructure.getNumberOfReports(), readReportingStructure.getNumberOfReports());
+        assertReportingStructureEquivalence(testReportingStructure, readReportingStructure);
     }
 
     //Read Reporting Structure - Test #3- 4 Direct Reports (2 levels of reports)
@@ -80,8 +78,7 @@ public class ReportingStructureServiceImplTest {
         ReportingStructure readReportingStructure = restTemplate.getForEntity(getReportingStructureIdUrl, ReportingStructure.class, testEmployee.getEmployeeId()).getBody();
 
         Assert.assertNotNull(readReportingStructure);
-        assertEmployeeEquivalence(testEmployee, readReportingStructure.getEmployee());
-        Assert.assertEquals(testReportingStructure.getNumberOfReports(), readReportingStructure.getNumberOfReports());
+        assertReportingStructureEquivalence(testReportingStructure, readReportingStructure);
     }
 
     // Helper method to ensure Employee Object Equivalence
@@ -92,4 +89,9 @@ public class ReportingStructureServiceImplTest {
         assertEquals(expected.getPosition(), actual.getPosition());
     }
 
+    // Helper method to ensure Reporting Structure Equivalence
+    private static void assertReportingStructureEquivalence(ReportingStructure expected, ReportingStructure actual) {
+        assertEmployeeEquivalence(expected.getEmployee(), actual.getEmployee());
+        Assert.assertEquals(expected.getNumberOfReports(), actual.getNumberOfReports());
+    }
 }

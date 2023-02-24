@@ -42,17 +42,17 @@ public class CompensationController {
     }
 
     //Returns Compensation object for employeeId
-    @GetMapping("/{employeeId}")
-    public Compensation read(@PathVariable String employeeId) {
-        LOG.debug("Received compensation read request for employee id: [{}]", employeeId);
+    @GetMapping("/{id}")
+    public Compensation read(@PathVariable String id) {
+        LOG.debug("Received compensation read request for employee id: [{}]", id);
 
-        Compensation compensation = compensationService.read(employeeId);
+        Compensation compensation = compensationService.read(id);
 
         // Exception handling if employeeId is invalid/not found --- implementing as backup as runtimeException in compensationService should catch first
         if (compensation != null) {
             return compensation;
         } else {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid Employee Id: " + employeeId);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid Employee Id: " + id);
         }
     }
 }

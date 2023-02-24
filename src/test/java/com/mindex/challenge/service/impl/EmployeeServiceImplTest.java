@@ -64,9 +64,6 @@ public class EmployeeServiceImplTest {
         // Update checks
         readEmployee.setPosition("Development Manager");
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-
         HttpEntity<Employee> entity = makeEntity(readEmployee);
 
         Employee updatedEmployee =

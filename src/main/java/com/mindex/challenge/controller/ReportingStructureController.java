@@ -21,17 +21,17 @@ public class ReportingStructureController {
     //Task 1
 
     //Returns reporting structure for employee, by employeeId
-    @GetMapping("/reportingStructure/{employeeId}")
-    public ReportingStructure read(@PathVariable String employeeId) {
-        LOG.debug("Received Reporting Structure read request for employee id [{}]", employeeId);
+    @GetMapping("/reportingStructure/{id}")
+    public ReportingStructure read(@PathVariable String id) {
+        LOG.debug("Received Reporting Structure read request for employee id [{}]", id);
 
-        ReportingStructure reportingStructure = reportingStructureService.read(employeeId);
+        ReportingStructure reportingStructure = reportingStructureService.read(id);
 
         // Exception handling if employeeId is invalid/not found --- implementing as backup as runtimeException in reportingStructureService should catch first
         if(reportingStructure != null){
             return reportingStructure;
         } else {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid Employee Id: " + employeeId);
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid Employee Id: " + id);
         }
     }
 }

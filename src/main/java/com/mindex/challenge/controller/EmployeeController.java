@@ -31,11 +31,11 @@ public class EmployeeController {
         return employeeService.create(employee);
     }
 
-    @GetMapping("/employee/{employeeId}")
-    public Employee read(@PathVariable String employeeId) {
-        LOG.debug("Received employee create request for id [{}]", employeeId);
+    @GetMapping("/employee/{id}")
+    public Employee read(@PathVariable String id) {
+        LOG.debug("Received employee create request for id [{}]", id);
 
-        return employeeService.read(employeeId);
+        return employeeService.read(id);
     }
 
     @PutMapping("/employee/{employeeId}")

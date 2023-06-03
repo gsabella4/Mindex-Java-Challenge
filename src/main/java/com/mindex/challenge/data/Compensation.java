@@ -1,5 +1,7 @@
 package com.mindex.challenge.data;
 
+import jdk.vm.ci.meta.Local;
+
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
@@ -19,7 +21,7 @@ public class Compensation {
     private LocalDate effectiveDate;
 
     //Constructors for Compensation
-    public Compensation(){}
+    public Compensation() {}
 
     public Compensation(Employee employee, BigDecimal salary, LocalDate effectiveDate) {
         this.employee = employee;

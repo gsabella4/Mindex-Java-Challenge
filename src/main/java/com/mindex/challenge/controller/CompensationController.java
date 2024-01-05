@@ -48,7 +48,7 @@ public class CompensationController {
 
         Compensation compensation = compensationService.read(id);
 
-        // Exception handling if employeeId is invalid/not found --- implementing as backup as runtimeException in compensationService should catch first
+        // Exception handling if employeeId is invalid/not found --- implementing for a backup as runtimeException in compensationService should catch first
         if (compensation != null) {
             return compensation;
         } else {

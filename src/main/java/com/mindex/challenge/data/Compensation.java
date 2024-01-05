@@ -1,7 +1,5 @@
 package com.mindex.challenge.data;
 
-import jdk.vm.ci.meta.Local;
-
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
